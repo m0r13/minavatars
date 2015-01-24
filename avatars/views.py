@@ -11,6 +11,9 @@ from PIL import Image
 
 
 def get_avatar(gen_func, cache_name, request, user, size):
+    sizes = getattr(settings, "AVATARS_SIZES", None)
+    if sizes is None:
+        return HttpResponse("Available sizes are not set!")
     cache_root = getattr(settings, "AVATARS_CACHE_DIR", None)
     if cache_root is None:
         return HttpResponse("Cache dir is not set!")
@@ -20,6 +23,8 @@ def get_avatar(gen_func, cache_name, request, user, size):
     
     try:
         size = int(size)
+        if not size in sizes and sizes != []:
+            raise ValueError
     except ValueError:
         return HttpResponse("Invalid size '%s'!" % size)
     

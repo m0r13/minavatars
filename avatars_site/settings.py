@@ -83,5 +83,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+# if AVATAR_SIZES is an empty array, all sizes are allowed
+AVATARS_SIZES = [1, 2, 4, 8]
 AVATARS_CACHE_DIR = os.path.join(BASE_DIR, "cache")
 AVATARS_CACHE_EXPIRY = 0
