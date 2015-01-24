@@ -1,4 +1,4 @@
-from settings import *
+from . settings import *
 
 # overriden later por supuesto
 SECRET_KEY = "ls$m0yt4pb79lh_pmq$ys*^32qp9on2rcqt2izp%q8=)d-4gut"
